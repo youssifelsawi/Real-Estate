@@ -1,0 +1,43 @@
+
+.headerContactUs{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5)
+    ,rgba(0, 0, 0, 0.5)),url(../../../Images/Other/header-2.jpg);
+    background-size: cover;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content {
+    background-color: #f7f7f7;
+}
+.content p {
+    font-size: 15px;
+
+}
+.content h4 {
+    color: #484848;
+}
+.content .list-unstyled i {
+    margin-top: 3px;
+    color: #484848;
+    background-color: #f7f7f7;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content .btn {
+    color: white;
+    background-color: var(--main-color);
+    width: 200px;
+}
+iframe {
+    width: 100%;
+    height: 450px;
+    padding-bottom: 30px;
+}
+
+

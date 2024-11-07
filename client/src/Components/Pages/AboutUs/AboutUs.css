@@ -1,0 +1,57 @@
+.headerAboutUs {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../../Images/Other/header-2.jpg);
+  background-size: cover;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-us .about-content {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 50px;
+  color: #535353;
+}
+@media (max-width: 991px) {
+  .about-us .about-content {
+    flex-direction: column;
+  }
+}
+.about-us .image img {
+  width: 420px;
+  height: 470px;
+}
+.about-us .text h5 {
+  font-weight: bold;
+  font-size: 20px;
+}
+.about-us .text p {
+  padding-top: 30px;
+  font-size: 16px;
+}
+.text {
+  padding-right: 15px;
+  flex: 1;
+}
+@media (max-width: 991px) {
+    .about-us .about-content {
+        margin-top: 50px;
+        padding: 0;
+      }
+      .about-us .image img {
+        width: 270px;
+        height: 300px;
+      }
+      .about-us .text p {
+        padding-top: 10px;
+        font-size: 15px;
+      }
+      .about-us .text h5 {
+        font-weight: bold;
+        font-size: 17px;
+      }
+}

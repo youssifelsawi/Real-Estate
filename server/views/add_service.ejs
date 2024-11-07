@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Service</title>
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+        <!--begin::Header-->
+        <nav class="app-header navbar navbar-expand bg-body" style="min-height: 50px;">
+            <div class="container-fluid">
+                <!-- Add any header elements here -->
+            </div>
+        </nav>
+        <!--end::Header-->
+
+        <!--begin::Sidebar-->
+        <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+            <div class="sidebar-brand">
+                <a href="/Services" class="brand-link">
+                    <span class="brand-text fw-light">Dashboard</span>
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <nav class="mt-2">
+                    <ul class="nav sidebar-menu flex-column" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/blogs" class="nav-link">
+                                <p>Blogs</p>
+                                <i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/services" class="nav-link">
+                                <p>Services</p><i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Properties" class="nav-link">
+                                <p>Properties</p><i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Images" class="nav-link">
+                                <p>Images</p><i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!--end::Sidebar-->
+
+        <!--begin::App Main-->
+        <main class="app-main">
+            <div class="app-content-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 class="mb-0">Add New Service</h3>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-end">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Add Service</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="app-content">
+                <div class="container-fluid">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card card-primary card-outline mb-4">
+                                <div class="card-header">
+                                    <div class="card-title">Add Service</div>
+                                </div>
+                                <form action="/services" method="POST" enctype="multipart/form-data">
+                                    <div class="card-body">
+
+                                        <!-- Display Error Messages -->
+                                        <% if (errors.length > 0) { %>
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    <% errors.forEach(function(error) { %>
+                                                        <li><%= error %></li>
+                                                    <% }) %>
+                                                </ul>
+                                            </div>
+                                        <% } %>
+
+                                        <div class="mb-3">
+                                            <div class="form-group">
+                                                <label for="description">Service Description</label>
+                                                <input type="text" class="form-control" id="description" name="description"
+                                                    required minlength="10" maxlength="500" value="<%= service.description || '' %>">
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <div class="form-group">
+                                                <label for="img">Service Image</label>
+                                                <input type="file" class="form-control-file" id="img" name="img">
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <button type="submit" class="btn btn-primary">Add Service</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!--end::Form-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end::App Content-->
+        </main>
+        <!--end::App Main-->
+    </div>
+    <script src="/adminlte/dist/js/adminlte.min.js"></script>
+</body>
+
+</html>

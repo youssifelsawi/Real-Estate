@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Properties</title>
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+        <!--begin::Header-->
+        <nav class="app-header navbar navbar-expand bg-body" style="min-height: 50px;">
+            <div class="container-fluid">
+                <!-- Add any header elements here -->
+            </div>
+        </nav>
+        <!--end::Header-->
+
+        <!--begin::Sidebar-->
+        <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+            <div class="sidebar-brand">
+                <a href="/Properties" class="brand-link">
+                    <span class="brand-text fw-light">Dashboard</span>
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <nav class="mt-2">
+                    <ul class="nav sidebar-menu flex-column" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/blogs" class="nav-link">
+                                <p>Blogs</p>
+                                <i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/services" class="nav-link">
+                                <p>Services</p><i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Properties" class="nav-link">
+                                <p>Properties</p><i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Images" class="nav-link">
+                                <p>Images</p><i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!--end::Sidebar-->
+
+        <!--begin::App Main-->
+        <main class="app-main">
+            <div class="app-content-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 class="mb-0">Properties List</h3>
+                        </div>
+                        <div class="col-sm-6 text-end">
+                            <a href="/properties/new" class="btn btn-primary">Add Property</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-content">
+                <div class="container-fluid">
+                    <div class="row g-4">
+                        <div class="col-md-12">
+                            <div class="card card-primary card-outline mb-4">
+                                <div class="card-header">
+                                    <div class="card-title" style="width: 100%;">All Properties:</div>
+                                </div>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Location</th>
+                                            <th>Price</th>
+                                            <th>Image</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% if (properties.length > 0) { %>
+                                            <% properties.forEach(function(property) { %>
+                                                <tr>
+                                                    <td><%= property.name %></td>
+                                                    <td><%= property.location %></td>
+                                                    <td><%= property.price %></td>
+                                                    <td>
+                                                        <% if (property.img && property.img.path) { %>
+                                                            <img src="/<%= property.img.path %>" alt="Property Image" style="width: 100px; height: 50px; object-fit: cover;" />
+                                                        <% } else { %>
+                                                            <p>No image available</p>
+                                                        <% } %>
+                                                    </td>
+                                                    <td>
+                                                        <a href="/properties/<%= property._id %>" class="btn btn-info">View</a>
+                                                        <a href="/properties/<%= property._id %>/edit" class="btn btn-warning">Update</a>
+                                                        <button class="btn btn-danger" onclick="deleteProperty('<%= property._id %>')">Delete</button>
+                                                    </td>
+                                                </tr>
+                                            <% }) %>
+                                        <% } else { %>
+                                            <tr>
+                                                <td colspan="6" class="text-center">No properties found.</td>
+                                            </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--end::App Main-->
+
+    </div>
+
+    <script src="/adminlte/dist/js/adminlte.min.js"></script>
+    <script>
+        function deleteProperty(propertyId) {
+            if (confirm('Are you sure you want to delete this property?')) {
+                fetch(`/properties/${propertyId}`, {
+                    method: 'DELETE'
+                })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.reload(); // Reload the page to reflect changes
+                    } else {
+                        alert('Failed to delete the property');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

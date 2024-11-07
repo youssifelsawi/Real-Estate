@@ -1,0 +1,119 @@
+/* Start Variables*/
+:root {
+  --main-color: #ff5a5f;
+  --color-primary: #484848;
+  --color-secned: #8d8e91;
+  --second-font: 20px;
+}
+
+/* End Variables*/
+/* --------------------------------------## Body ##------------------------------------------ */
+body {
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ################################### Start Hero section ################################### */
+
+.container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.overlayed-image {
+  position: relative;
+}
+
+.overlayed-image img {
+  width: 100%;
+}
+
+.image-overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 30, 0.6);
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.overlay-text {
+  margin-top: 130px;
+  margin-left: 150px;
+}
+
+.overlay-text a {
+  color: white;
+  text-decoration: none;
+}
+
+.overlay-text span {
+  color: white;
+}
+
+.overlay-text h2 {
+  color: white;
+  font-weight: bold;
+}
+
+
+/* ################################### End Hero section ################################### */
+
+
+
+/* ################################### Start Services section ################################### */
+
+.services {
+  margin: 50px 0px;
+}
+
+.service-card {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.service-card img {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.service-card p {
+  color: var(--color-primary);
+  padding-top: 15px;
+  font-size: 1.1em;
+}
+
+/* ################################### End Services section ################################### */
+
+
+/* ###################################### Responsive ############################################ */
+
+@media (max-width: 480px) {
+  .overlayed-image img {
+      height: 200px;
+  }
+
+  .overlay-text {
+      margin-top: 60px;
+      margin-left: 60px;
+  }
+}
+
+@media (max-width: 850px) {
+  .overlay-text {
+      margin-top: 80px;
+      margin-left: 100px;
+  }
+
+  .service-card img {
+      height: 300px;
+  }
+
+  .service-card p {
+      font-size: 1.1em;
+  }
+}

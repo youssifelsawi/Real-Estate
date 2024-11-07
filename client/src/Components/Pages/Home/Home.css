@@ -1,0 +1,273 @@
+/* Start Variables*/
+:root {
+    --main-color: #ff5a5f;
+    --color-primary: #484848;
+    --color-secned: #8d8e91;
+    --second-font: 20px;
+}
+
+/* End Variables*/
+/* --------------------------------------## Body ##------------------------------------------ */
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* --------------------------------------## Home ##------------------------------------------ */
+
+/* ################################### start landing section ################################### */
+.hero-section {
+    background: linear-gradient(rgba(10, 10, 10, 0.5), rgba(11, 11, 11, 0.3)), url('../../../Images/Other/1.jpg');
+    background-size: cover;
+    min-height: 70vh;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+    height: 80vh;
+    text-align: center;
+}
+
+.hero-section .container h1 {
+    font-size: 50px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+@media (max-width: 991px) {
+    .hero-section .container h1 {
+        font-size: 45px;
+        font-weight: 600;
+    }
+
+    /* .hero-section .container {
+        top: -30px;
+    } */
+    .container {
+        max-width: 90%;
+    }
+}
+@media(min-width:991px) {
+    .navbar .navbar-nav .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        transform: translateX(-50%);
+        height: 2px;
+        background-color: var(--main-color);
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .navbar .nav-link:hover::before {
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+@media (max-width: 386px) {
+    .navbar-brand {
+        width: 200px;
+    }
+}
+
+/* ################################### End landing section ################################### */
+
+/* ################################### Start Cities Section ################################### */
+.find-properties {
+    background-color: white;
+    padding-top: 30px;
+}
+
+.cities-title h1 {
+    font-size: 1.9em;
+    font-weight: bold;
+}
+
+.city-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 350px;
+    transition: 0.5s;
+}
+
+.city-card:hover {
+    transform: scale(1.05);
+}
+
+.city-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.city-card-overlay {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    text-align: center;
+}
+
+.city-card-overlay h3 {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.city-card-overlay p {
+    font-size: 1em;
+}
+
+/* ################################### End Cities Section ################################### */
+
+
+
+/* ################################### why-choose-us , articles-tips  ################################### */
+
+
+.why-choose-us, .articles-tips {
+    padding: 0 130px; 
+}
+
+.why-choose-us h2, 
+.articles-tips h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.why-choose-us p, 
+.articles-tips p {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #777;
+}
+
+.why-choose-us .features, 
+.articles-tips .articles {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.feature, 
+.article {
+    background-color: white;
+    padding: 30px;
+    margin: 15px;
+    border-radius: 10px;
+    width: 28%;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.122);
+}
+
+.feature img,
+.article img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    margin-bottom: 10px;
+    
+}
+.article h3 {
+    font-size: 17px;
+}
+
+.article h4 {
+    width: 20px;
+    height: auto;
+    color: rgb(255, 0, 0);
+    font-weight: 100;
+    font-size: 12px;
+    }
+.feature p, 
+.article p {
+    color: #999;
+}
+
+.article img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.circle-background {
+    width: 100px;
+    height: 100px;
+    background-color: #fdece7;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px;
+}
+
+.circle-background img {
+    width: 50%;
+    height: 50%;
+}
+
+.article-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+}
+
+.article-footer img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+/* ################################### End why-choose-us ,End articles-tips  ################################### */
+
+
+
+
+
+
+/* ############################### our partner ###################################*/
+
+.our_partner {
+    padding-top: 50px;
+}
+
+.our_partner h1 {
+    text-align: center;
+    color: var(--color-primary);
+}
+
+.our_partner h2 {
+    text-align: center;
+    color: var(--color-secned);
+    font-size: var(--second-font);
+    font-weight: lighter;
+    font-family: 'Nunito', sans-serif;
+    margin: 20px 0px;
+}
+
+.our_partner_img {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+}
+
+/* ############################### End our partner ###################################*/

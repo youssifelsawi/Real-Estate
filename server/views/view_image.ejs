@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Image</title>
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+        <nav class="app-header navbar navbar-expand bg-body" style="min-height: 50px;">
+            <div class="container-fluid"></div>
+        </nav>
+
+        <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+            <div class="sidebar-brand">
+                <a href="/Images" class="brand-link">
+                    <span class="brand-text fw-light">Dashboard</span>
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <nav class="mt-2">
+                    <ul class="nav sidebar-menu flex-column" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/blogs" class="nav-link">
+                                <p>Blogs</p>
+                                <i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/services" class="nav-link">
+                                <p>Services</p><i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Properties" class="nav-link">
+                                <p>Properties</p><i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Images" class="nav-link">
+                                <p>Images</p><i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="app-main">
+            <div class="app-content-header">
+                <div class="container-fluid">
+                    <h3 class="mb-0">View Image</h3>
+                </div>
+            </div>
+
+            <div class="app-content">
+                <div class="container-fluid">
+                    <div class="card card-primary card-outline mb-4">
+                        <div class="card-header">
+                            <h5 class="card-title">Image Details</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <strong>Category:</strong>
+                                <p><%= image.category %></p>
+                            </div>
+
+                            <div class="mb-3">
+                                <strong>City:</strong>
+                                <p><%= image.city %></p>
+                            </div>
+
+                            <div class="mb-3">
+                                <strong>Property No:</strong>
+                                <p><%= image.propertyNo %></p>
+                            </div>
+
+                            <div class="mb-3">
+                                <strong>Image:</strong><br>
+                                <img src="/<%= image.img.path %>" alt="Image" style="width: 300px; object-fit: cover;" />
+                            </div>
+
+                            <div class="mb-3">
+                                <a href="/images" class="btn btn-primary">Back to Images</a>
+                                <a href="/images/<%= image._id %>/edit" class="btn btn-warning">Edit Image</a>
+                                <form action="/images/<%= image._id %>" method="POST" style="display:inline;">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger">Delete Image</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/adminlte/dist/js/adminlte.min.js"></script>
+</body>
+
+</html>

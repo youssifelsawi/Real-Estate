@@ -1,0 +1,99 @@
+/* Start Variables*/
+:root {
+    --main-color: #ff5a5f;
+    --color-primary: #484848;
+    --color-secned: #8d8e91;
+    --second-font: 20px;
+}
+
+/* End Variables*/
+/* --------------------------------------## Body ##------------------------------------------ */
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* ################################### Start Blog Details section ################################### */
+
+.blog-details {
+    background-color: rgb(240, 240, 240);
+    padding: 50px 0px;
+}
+
+.title-text {
+    margin-bottom: 30px;
+}
+
+.title-text a {
+    text-decoration: none;
+    color: #3e5379;
+}
+
+.title-text  h3 {
+    padding-top: 15px;
+    font-weight: bold;
+}
+
+.title-text span {
+    color: var(--main-color);
+}
+
+
+.blog-article {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.blog-header {
+    width: fit-content;
+    background-color: var(--main-color);
+    border-radius: 5px;
+    color: white;
+}
+
+.blog-header p {
+    padding: 2px 10px;
+}
+
+.blog-image {
+    border-radius: 10px;
+}
+
+.blog-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.blog-date {
+    display: flex;
+}
+
+.blog-date p {
+    color: var(--color-secned);
+    padding-left: 5px;
+}
+
+.blog-date i {
+    color: var(--color-secned);
+}
+
+.blog-image img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.blog-text {
+    padding: 20px 0px;
+}
+
+.blog-text p {
+    color: black;
+}
+
+.blog-text .text-title {
+    padding-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* ################################### End Blog Details section ################################### */

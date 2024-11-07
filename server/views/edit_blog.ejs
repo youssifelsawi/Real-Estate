@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Blog</title>
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+        <nav class="app-header navbar navbar-expand bg-body" style="min-height: 50px;">
+            <div class="container-fluid"></div>
+        </nav>
+
+        <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+            <div class="sidebar-brand">
+                <a href="/blogs" class="brand-link">
+                    <span class="brand-text fw-light">Dashboard</span>
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <nav class="mt-2">
+                    <ul class="nav sidebar-menu flex-column" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="/blogs" class="nav-link">
+                                <p>Blogs</p>
+                                <i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/services" class="nav-link">
+                                <p>Services</p><i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Properties" class="nav-link">
+                                <p>Properties</p><i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Images" class="nav-link">
+                                <p>Images</p><i class="nav-arrow fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="app-main">
+            <div class="app-content-header">
+                <div class="container-fluid">
+                    <h3 class="mb-0">Edit Blog</h3>
+                </div>
+            </div>
+
+            <div class="app-content">
+                <div class="container-fluid">
+                    <div class="card card-primary card-outline mb-4">
+                        <div class="card-header">
+                            <h5 class="card-title">Blog Details</h5>
+                        </div>
+                        <form id="editBlogForm" enctype="multipart/form-data" method="POST" action="/blogs/<%= blog._id %>?_method=PUT">
+                            <div class="card-body">
+                                <% if (errors.length > 0) { %>
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            <% errors.forEach(function(error) { %>
+                                                <li><%= error %></li>
+                                            <% }) %>
+                                        </ul>
+                                    </div>
+                                <% } %>
+
+                                <div class="mb-3">
+                                    <label for="category" class="form-label">Category</label>
+                                    <input type="text" class="form-control" id="category" name="category" value="<%= blog.category %>" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="title" class="form-label">Title</label>
+                                    <input type="text" class="form-control" id="title" name="title" value="<%= blog.title %>" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Description</label>
+                                    <textarea class="form-control" id="description" name="description" rows="4" required><%= blog.description %></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="img" class="form-label">Image</label>
+                                    <input type="file" class="form-control" id="img" name="img" accept="image/*">
+                                    <small class="form-text text-muted">Leave empty to keep the current image.</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <strong>Current Image:</strong><br>
+                                    <% if (blog.img && blog.img.path) { %>
+                                        <img src="/uploads/<%= blog.img.path.split('/').pop() %>" alt="Blog Image" style="width: 300px; object-fit: cover;" />
+                                    <% } else { %>
+                                        <p>No image available</p>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Update Blog</button>
+                                <a href="/blogs" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/adminlte/dist/js/adminlte.min.js"></script>
+</body>
+
+</html>
